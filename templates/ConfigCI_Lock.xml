@@ -15,6 +15,9 @@
     <Rule>
       <Option>Enabled:Advanced Boot Options Menu</Option>
     </Rule>
+    <Rule>
+      <Option>Disabled:Script Enforcement</Option>
+    </Rule>
   </Rules>
   <!--EKUS-->
   <EKUs>
