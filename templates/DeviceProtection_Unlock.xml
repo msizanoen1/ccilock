@@ -43,5 +43,10 @@
         <String>DeviceProtection_Unlock</String>
       </Value>
     </Setting>
+    <Setting Provider="AllHostIds" Key="AllKeys" ValueName="EnterpriseDefinedClsId">
+      <Value>
+        <Boolean>true</Boolean>
+      </Value>
+    </Setting>
   </Settings>
 </SiPolicy>
