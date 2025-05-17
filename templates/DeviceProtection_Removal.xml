@@ -28,12 +28,10 @@
       <Option>Enabled:Allow Supplemental Policies</Option>
     </Rule>
   </Rules>
-  <EKUs />
   <FileRules>
     <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
     <Allow ID="ID_ALLOW_EVERYTHING_UMCI" FileName="*" />
   </FileRules>
-  <Signers />
   <SigningScenarios>
     <SigningScenario Value="131" ID="ID_SIGNINGSCENARIO_KMCI">
       <ProductSigners>
