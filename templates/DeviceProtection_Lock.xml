@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <SiPolicy xmlns="urn:schemas-microsoft-com:sipolicy" PolicyType="Base Policy">
-  <VersionEx>0.0.0.0</VersionEx>
-  <PlatformID>{2E07F7E4-194C-4D20-B7C9-6F44A6C5A234}</PlatformID>
   <Rules>
     <Rule>
       <Option>Enabled:UMCI</Option>
@@ -208,16 +206,4 @@
   <CiSigners>
     <CiSigner SignerId="ID_SIGNER_STORE" />
   </CiSigners>
-  <Settings>
-    <Setting Provider="PolicyInfo" Key="Information" ValueName="Name">
-      <Value>
-        <String>Device Protection Lock Policy</String>
-      </Value>
-    </Setting>
-    <Setting Provider="PolicyInfo" Key="Information" ValueName="Id">
-      <Value>
-        <String>DeviceProtection_Lock</String>
-      </Value>
-    </Setting>
-  </Settings>
 </SiPolicy>
