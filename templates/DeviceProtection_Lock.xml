@@ -26,12 +26,46 @@
     <EKU ID="ID_EKU_ELAM" Value="010A2B0601040182373D0401" />
     <EKU ID="ID_EKU_HAL_EXT" Value="010a2b0601040182373d0501" />
     <EKU ID="ID_EKU_RT_EXT" Value="010a2b0601040182370a0315" />
-    <EKU ID="ID_EKU_STORE" Value="010a2b0601040182374c0301" />
     <EKU ID="ID_EKU_DCODEGEN" Value="010A2B0601040182374C0501" />
     <EKU ID="ID_EKU_AM" Value="010a2b0601040182374c0b01" />
   </EKUs>
   <FileRules>
     <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
+    <Deny ID="ID_DENY_BASH" FileName="bash.exe" />
+    <Deny ID="ID_DENY_CDB" FileName="CDB.Exe" />
+    <Deny ID="ID_DENY_CMD" FileName="cmd.Exe" />
+    <Deny ID="ID_DENY_CSCRIPT" FileName="cscript.exe" />
+    <Deny ID="ID_DENY_CSI" FileName="csi.Exe" />
+    <Deny ID="ID_DENY_DNX" FileName="dnx.Exe" />
+    <Deny ID="ID_DENY_FSI" FileName="fsi.exe" />
+    <Deny ID="ID_DENY_HH" FileName="hh.exe" />
+    <Deny ID="ID_DENY_INFDEFAULTINSTALL" FileName="infdefaultinstall.exe" />
+    <Deny ID="ID_DENY_KD" FileName="kd.Exe" />
+    <Deny ID="ID_DENY_LXRUN" FileName="lxrun.exe" />
+    <Deny ID="ID_DENY_LXSSMANAGER_DLL" FileName="lxssmanager.dll" />
+    <Deny ID="ID_DENY_LXSSMANAGER_EXE" FileName="lxssmanager.exe" />
+    <Deny ID="ID_DENY_MICROSOFT_WORKFLOW_COMPILER" FileName="Microsoft.Workflow.Compiler.exe" />
+    <Deny ID="ID_DENY_MSBUILD" FileName="MSBuild.Exe" />
+    <Deny ID="ID_DENY_MSHTA" FileName="mshta.exe" />
+    <Deny ID="ID_DENY_NTSD" FileName="ntsd.Exe" />
+    <Deny ID="ID_DENY_POWERSHELL" FileName="powershell.exe" />
+    <Deny ID="ID_DENY_POWERSHELLCUSTOMHOST" FileName="powershellcustomhost.exe" />
+    <Deny ID="ID_DENY_POWERSHELL_ISE" FileName="powershell_ise.exe" />
+    <Deny ID="ID_DENY_PWSH" FileName="pwsh.dll" />
+    <Deny ID="ID_DENY_RCSI" FileName="rcsi.Exe" />
+    <Deny ID="ID_DENY_REG" FileName="reg.exe" />
+    <Deny ID="ID_DENY_REGEDIT" FileName="regedit.exe" />
+    <Deny ID="ID_DENY_REGEDT32" FileName="regedt32.exe" />
+    <Deny ID="ID_DENY_REGINI" FileName="regini.exe" />
+    <Deny ID="ID_DENY_RUNSCRIPTHELPER" FileName="runscripthelper.exe" />
+    <Deny ID="ID_DENY_SAMLOCK" FileName="samlock.exe" />
+    <Deny ID="ID_DENY_WBEMTEST" FileName="wbemtest.exe" />
+    <Deny ID="ID_DENY_WINDBG" FileName="windbg.Exe" />
+    <Deny ID="ID_DENY_WMIC" FileName="wmic.exe" />
+    <Deny ID="ID_DENY_WSCRIPT" FileName="wscript.exe" />
+    <Deny ID="ID_DENY_WSL" FileName="wsl.exe" />
+    <Deny ID="ID_DENY_WSLCONFIG" FileName="wslconfig.exe" />
+    <Deny ID="ID_DENY_WSLHOST" FileName="wslhost.exe" />
   </FileRules>
   <Signers>
     <Signer ID="ID_SIGNER_WINDOWS_PRODUCTION_USER" Name="Microsoft Product Root 2010 Windows EKU">
@@ -86,9 +120,6 @@
       <CertRoot Type="Wellknown" Value="07" />
       <CertEKU ID="ID_EKU_RT_EXT" />
     </Signer>
-    <Signer ID="ID_SIGNER_TEST2010_USER" Name="MincryptKnownRootMicrosoftTestRoot2010">
-      <CertRoot Type="Wellknown" Value="0A" />
-    </Signer>
     <Signer ID="ID_SIGNER_DRM" Name="MincryptKnownRootMicrosoftDMDRoot2005">
       <CertRoot Type="Wellknown" Value="0C" />
     </Signer>
@@ -112,13 +143,85 @@
     <SigningScenario Value="12" ID="ID_SIGNINGSCENARIO_UMCI">
       <ProductSigners>
         <AllowedSigners>
-          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_PRODUCTION_USER" />
+          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_PRODUCTION_USER">
+            <ExceptDenyRule DenyRuleID="ID_DENY_BASH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CDB" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CMD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CSCRIPT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_DNX" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_FSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_HH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_INFDEFAULTINSTALL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_KD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXRUN" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXSSMANAGER_DLL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXSSMANAGER_EXE" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MICROSOFT_WORKFLOW_COMPILER" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MSBUILD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MSHTA" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_NTSD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELLCUSTOMHOST" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELL_ISE" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_PWSH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_RCSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGEDIT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGEDT32" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGINI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_RUNSCRIPTHELPER" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_SAMLOCK" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WBEMTEST" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WINDBG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WMIC" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSCRIPT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSLCONFIG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSLHOST" />
+          </AllowedSigner>
           <AllowedSigner SignerId="ID_SIGNER_ELAM_PRODUCTION_USER" />
           <AllowedSigner SignerId="ID_SIGNER_HAL_PRODUCTION_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA2_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA1_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_MD5_USER" />
-          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_FLIGHT_ROOT_USER" />
+          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_FLIGHT_ROOT_USER">
+            <ExceptDenyRule DenyRuleID="ID_DENY_BASH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CDB" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CMD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CSCRIPT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_CSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_DNX" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_FSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_HH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_INFDEFAULTINSTALL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_KD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXRUN" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXSSMANAGER_DLL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_LXSSMANAGER_EXE" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MICROSOFT_WORKFLOW_COMPILER" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MSBUILD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_MSHTA" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_NTSD" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELLCUSTOMHOST" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_POWERSHELL_ISE" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_PWSH" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_RCSI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGEDIT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGEDT32" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_REGINI" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_RUNSCRIPTHELPER" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_SAMLOCK" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WBEMTEST" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WINDBG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WMIC" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSCRIPT" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSL" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSLCONFIG" />
+            <ExceptDenyRule DenyRuleID="ID_DENY_WSLHOST" />
+          </AllowedSigner>
           <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2_USER" />
@@ -128,7 +231,6 @@
           <AllowedSigner SignerId="ID_SIGNER_AM" />
           <AllowedSigner SignerId="ID_SIGNER_RT_FLIGHT" />
           <AllowedSigner SignerId="ID_SIGNER_RT_STANDARD" />
-          <AllowedSigner SignerId="ID_SIGNER_TEST2010_USER" />
         </AllowedSigners>
       </ProductSigners>
     </SigningScenario>
