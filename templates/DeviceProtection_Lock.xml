@@ -74,14 +74,6 @@
       <CertRoot Type="Wellknown" Value="04" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
-    <Signer ID="ID_SIGNER_STORE" Name="Microsoft MarketPlace PCA 2011">
-      <CertRoot Type="TBS" Value="FC9EDE3DCCA09186B2D3BF9B738A2050CB1A554DA2DCADB55F3F72EE17721378" />
-      <CertEKU ID="ID_EKU_STORE" />
-    </Signer>
-    <Signer ID="ID_SIGNER_STORE_FLIGHT_ROOT" Name="Microsoft Flighting Root 2014 Store EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_STORE" />
-    </Signer>
     <Signer ID="ID_SIGNER_RT_PRODUCTION" Name="Microsoft Product Root 2010 RT EKU">
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_RT_EXT" />
@@ -130,8 +122,6 @@
           <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2_USER" />
-          <AllowedSigner SignerId="ID_SIGNER_STORE" />
-          <AllowedSigner SignerId="ID_SIGNER_STORE_FLIGHT_ROOT" />
           <AllowedSigner SignerId="ID_SIGNER_RT_PRODUCTION" />
           <AllowedSigner SignerId="ID_SIGNER_DRM" />
           <AllowedSigner SignerId="ID_SIGNER_DCODEGEN" />
@@ -143,7 +133,4 @@
       </ProductSigners>
     </SigningScenario>
   </SigningScenarios>
-  <CiSigners>
-    <CiSigner SignerId="ID_SIGNER_STORE" />
-  </CiSigners>
 </SiPolicy>
