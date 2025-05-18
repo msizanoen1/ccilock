@@ -22,6 +22,27 @@ function Initialize-CIPolicy {
   Set-Content $FilePath $PolicyXML.OuterXml
 }
 
+function Update-DenyRules {
+  param ([string]$FilePath)
+
+  $PolicyXML = [xml](Get-Content $FilePath)
+  $denyRuleIDs = @()
+
+  foreach ($denyRule in $PolicyXML.SiPolicy.FileRules.GetElementsByTagName("Deny")) {
+    $denyRuleIDs += $denyRule.ID
+  }
+
+  foreach ($allowedSigner in $PolicyXML.GetElementsByTagName("AllowedSigner")) {
+    foreach ($denyRuleID in $denyRuleIDs) {
+      $exceptDenyRuleElement = $PolicyXML.CreateElement("ExceptDenyRule", $PolicyXML.SiPolicy.NamespaceURI)
+      $exceptDenyRuleElement.SetAttribute("DenyRuleID", $denyRuleID)
+      $allowedSigner.AppendChild($exceptDenyRuleElement) | Out-Null
+    }
+  }
+
+  Set-Content $FilePath $PolicyXML.OuterXml
+}
+
 if (Test-Path policyInfo.json) {
   $config = Get-Content policyInfo.json | ConvertFrom-Json
 }
@@ -83,6 +104,9 @@ if ($null -eq $lp_cert) {
 Export-Certificate -Cert $lp_cert -FilePath tmp\DeviceProtection_LocalPolicySigner.cer | Out-Null
 Copy-Item templates\* tmp
 Copy-Item templates\DeviceProtection_Lock.xml tmp\DeviceProtection_Removal.xml
+
+Update-DenyRules tmp\DeviceProtection_Lock.xml
+Update-DenyRules tmp\DeviceProtection_Removal.xml
 
 Initialize-CIPolicy -FilePath tmp\DeviceProtection_Lock.xml -PolicyID $DeviceProtection_Lock_ID -BasePolicyID $DeviceProtection_Lock_ID -PolicyVersion "$policyVersion"
 Initialize-CIPolicy -FilePath tmp\DeviceProtection_Removal.xml -PolicyID $DeviceProtection_Lock_ID -BasePolicyID $DeviceProtection_Lock_ID -PolicyVersion "$policyVersion"
