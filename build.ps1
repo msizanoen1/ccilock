@@ -73,12 +73,29 @@ $DeviceProtection_Unlock_ID = '{' + $config.UnlockPolicyID + '}'
 
 $lp_subject = 'CN=Device Protection Local Policy Signer'
 
-$installationPath = & "${ENV:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -prerelease -latest -property installationPath
+$installationPath = & "${ENV:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
+  -sort `
+  -prerelease `
+  -requires Microsoft.VisualStudio.Component.Windows10SDK.* Microsoft.VisualStudio.Component.Windows11SDK.* `
+  -requiresAny `
+  -property installationPath
 if ($installationPath -and (Test-Path "$installationPath\Common7\Tools\vsdevcmd.bat")) {
-  & "${ENV:COMSPEC}" /s /c "`"$installationPath\Common7\Tools\vsdevcmd.bat`" -no_logo && set" | ForEach-Object {
-    $name, $value = $_ -split '=', 2
-    Set-Content ENV:\"$name" $value
+  :loop foreach ($var in @(& "${ENV:COMSPEC}" /s /c "`"$installationPath\Common7\Tools\vsdevcmd.bat`" -no_logo && set")) {
+    $name, $value = $var -split '=', 2
+    if ($name -eq 'PATH') {
+      foreach ($searchPath in $value -split ';') {
+        if (Test-Path "$searchPath\signtool.exe") {
+          $signtool = "$searchPath\signtool.exe"
+          break loop
+        }
+      }
+    }
   }
+}
+
+if ($null -eq $signtool) {
+  Write-Host 'Cannot find signtool.exe, aborting'
+  exit 1
 }
 
 if (Test-Path out) {
@@ -127,4 +144,4 @@ ConvertFrom-CIPolicy tmp\DeviceProtection_Lock.xml tmp\DeviceProtection_Lock.cip
 ConvertFrom-CIPolicy tmp\DeviceProtection_Unlock.xml tmp\DeviceProtection_Unlock.cip | Out-Null
 ConvertFrom-CIPolicy tmp\DeviceProtection_Removal.xml tmp\DeviceProtection_Removal.cip | Out-Null
 
-signtool sign -v -f tmp\DeviceProtection_LocalPolicySigner.cer -p7 out -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 tmp\*.cip
+& $signtool sign -v -f tmp\DeviceProtection_LocalPolicySigner.cer -p7 out -p7co 1.3.6.1.4.1.311.79.1 -fd sha256 tmp\*.cip
