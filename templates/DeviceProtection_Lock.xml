@@ -24,10 +24,9 @@
     <EKU ID="ID_EKU_WINDOWS" Value="010A2B0601040182370A0306" />
     <EKU ID="ID_EKU_WHQL" Value="010A2B0601040182370A0305" />
     <EKU ID="ID_EKU_ELAM" Value="010A2B0601040182373D0401" />
-    <EKU ID="ID_EKU_HAL_EXT" Value="010a2b0601040182373d0501" />
-    <EKU ID="ID_EKU_RT_EXT" Value="010a2b0601040182370a0315" />
+    <EKU ID="ID_EKU_HAL_EXT" Value="010A2B0601040182373D0501" />
     <EKU ID="ID_EKU_DCODEGEN" Value="010A2B0601040182374C0501" />
-    <EKU ID="ID_EKU_AM" Value="010a2b0601040182374c0b01" />
+    <EKU ID="ID_EKU_DEFENDER" Value="010A2B0601040182374C0B01" />
   </EKUs>
   <FileRules>
     <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
@@ -84,8 +83,16 @@
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
+    <Signer ID="ID_SIGNER_DCODEGEN" Name="Microsoft Product Root 2010 Dynamic Code Generation EKU">
+      <CertRoot Type="Wellknown" Value="06" />
+      <CertEKU ID="ID_EKU_DCODEGEN" />
+    </Signer>
     <Signer ID="ID_SIGNER_WHQL_SHA1_USER" Name="Microsoft Product Root WHQL EKU SHA1">
       <CertRoot Type="Wellknown" Value="05" />
+      <CertEKU ID="ID_EKU_WHQL" />
+    </Signer>
+    <Signer ID="ID_SIGNER_WHQL_MD5_USER" Name="Microsoft Product Root WHQL EKU MD5">
+      <CertRoot Type="Wellknown" Value="04" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
     <Signer ID="ID_SIGNER_WINDOWS_FLIGHT_ROOT_USER" Name="Microsoft Flighting Root 2014 Windows EKU">
@@ -104,32 +111,9 @@
       <CertRoot Type="Wellknown" Value="0E" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
-    <Signer ID="ID_SIGNER_WHQL_MD5_USER" Name="Microsoft Product Root WHQL EKU MD5">
-      <CertRoot Type="Wellknown" Value="04" />
-      <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
-    <Signer ID="ID_SIGNER_RT_PRODUCTION" Name="Microsoft Product Root 2010 RT EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_RT_EXT" />
-    </Signer>
-    <Signer ID="ID_SIGNER_RT_FLIGHT" Name="Microsoft Flighting Root 2014 RT EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_RT_EXT" />
-    </Signer>
-    <Signer ID="ID_SIGNER_RT_STANDARD" Name="Microsoft Standard Root 2011 RT EKU">
+    <Signer ID="ID_SIGNER_DEFENDER" Name="Microsoft Standard Root 2011 Defender EKU">
       <CertRoot Type="Wellknown" Value="07" />
-      <CertEKU ID="ID_EKU_RT_EXT" />
-    </Signer>
-    <Signer ID="ID_SIGNER_DRM" Name="MincryptKnownRootMicrosoftDMDRoot2005">
-      <CertRoot Type="Wellknown" Value="0C" />
-    </Signer>
-    <Signer ID="ID_SIGNER_DCODEGEN" Name="MincryptKnownRootMicrosoftProductRoot2010">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_DCODEGEN" />
-    </Signer>
-    <Signer ID="ID_SIGNER_AM" Name="MincryptKnownRootMicrosoftStandardRoot2011">
-      <CertRoot Type="Wellknown" Value="07" />
-      <CertEKU ID="ID_EKU_AM" />
+      <CertEKU ID="ID_EKU_DEFENDER" />
     </Signer>
   </Signers>
   <SigningScenarios>
@@ -225,12 +209,8 @@
           <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2_USER" />
-          <AllowedSigner SignerId="ID_SIGNER_RT_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_DRM" />
           <AllowedSigner SignerId="ID_SIGNER_DCODEGEN" />
-          <AllowedSigner SignerId="ID_SIGNER_AM" />
-          <AllowedSigner SignerId="ID_SIGNER_RT_FLIGHT" />
-          <AllowedSigner SignerId="ID_SIGNER_RT_STANDARD" />
+          <AllowedSigner SignerId="ID_SIGNER_DEFENDER" />
         </AllowedSigners>
       </ProductSigners>
     </SigningScenario>
