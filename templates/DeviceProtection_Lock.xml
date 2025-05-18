@@ -83,10 +83,6 @@
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
-    <Signer ID="ID_SIGNER_DCODEGEN" Name="Microsoft Product Root 2010 Dynamic Code Generation EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_DCODEGEN" />
-    </Signer>
     <Signer ID="ID_SIGNER_WHQL_SHA1_USER" Name="Microsoft Product Root WHQL EKU SHA1">
       <CertRoot Type="Wellknown" Value="05" />
       <CertEKU ID="ID_EKU_WHQL" />
@@ -110,10 +106,6 @@
     <Signer ID="ID_SIGNER_WHQL_FLIGHT_SHA2_USER" Name="Microsoft Flighting Root 2014 WHQL EKU">
       <CertRoot Type="Wellknown" Value="0E" />
       <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
-    <Signer ID="ID_SIGNER_DEFENDER" Name="Microsoft Standard Root 2011 Defender EKU">
-      <CertRoot Type="Wellknown" Value="07" />
-      <CertEKU ID="ID_EKU_DEFENDER" />
     </Signer>
   </Signers>
   <SigningScenarios>
@@ -209,8 +201,6 @@
           <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT_USER" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2_USER" />
-          <AllowedSigner SignerId="ID_SIGNER_DCODEGEN" />
-          <AllowedSigner SignerId="ID_SIGNER_DEFENDER" />
         </AllowedSigners>
       </ProductSigners>
     </SigningScenario>
