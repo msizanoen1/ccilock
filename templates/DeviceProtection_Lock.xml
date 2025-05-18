@@ -31,34 +31,9 @@
     <EKU ID="ID_EKU_AM" Value="010a2b0601040182374c0b01" />
   </EKUs>
   <FileRules>
-    <FileAttrib ID="ID_FILEATTRIB_REFRESH_POLICY" FileName="RefreshPolicy.exe"
-      MinimumFileVersion="10.0.19042.0" />
+    <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
   </FileRules>
   <Signers>
-    <Signer ID="ID_SIGNER_WINDOWS_PRODUCTION" Name="Microsoft Product Root 2010 Windows EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_WINDOWS" />
-    </Signer>
-    <Signer ID="ID_SIGNER_ELAM_PRODUCTION" Name="Microsoft Product Root 2010 ELAM EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_ELAM" />
-    </Signer>
-    <Signer ID="ID_SIGNER_HAL_PRODUCTION" Name="Microsoft Product Root 2010 HAL EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_HAL_EXT" />
-    </Signer>
-    <Signer ID="ID_SIGNER_WHQL_SHA2" Name="Microsoft Product Root 2010 WHQL EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
-    <Signer ID="ID_SIGNER_WHQL_SHA1" Name="Microsoft Product Root WHQL EKU SHA1">
-      <CertRoot Type="Wellknown" Value="05" />
-      <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
-    <Signer ID="ID_SIGNER_WHQL_MD5" Name="Microsoft Product Root WHQL EKU MD5">
-      <CertRoot Type="Wellknown" Value="04" />
-      <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
     <Signer ID="ID_SIGNER_WINDOWS_PRODUCTION_USER" Name="Microsoft Product Root 2010 Windows EKU">
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_WINDOWS" />
@@ -77,22 +52,6 @@
     </Signer>
     <Signer ID="ID_SIGNER_WHQL_SHA1_USER" Name="Microsoft Product Root WHQL EKU SHA1">
       <CertRoot Type="Wellknown" Value="05" />
-      <CertEKU ID="ID_EKU_WHQL" />
-    </Signer>
-    <Signer ID="ID_SIGNER_WINDOWS_FLIGHT_ROOT" Name="Microsoft Flighting Root 2014 Windows EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_WINDOWS" />
-    </Signer>
-    <Signer ID="ID_SIGNER_ELAM_FLIGHT" Name="Microsoft Flighting Root 2014 ELAM EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_ELAM" />
-    </Signer>
-    <Signer ID="ID_SIGNER_HAL_FLIGHT" Name="Microsoft Flighting Root 2014 HAL EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_HAL_EXT" />
-    </Signer>
-    <Signer ID="ID_SIGNER_WHQL_FLIGHT_SHA2" Name="Microsoft Flighting Root 2014 WHQL EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
       <CertEKU ID="ID_EKU_WHQL" />
     </Signer>
     <Signer ID="ID_SIGNER_WINDOWS_FLIGHT_ROOT_USER" Name="Microsoft Flighting Root 2014 Windows EKU">
@@ -135,9 +94,6 @@
       <CertRoot Type="Wellknown" Value="07" />
       <CertEKU ID="ID_EKU_RT_EXT" />
     </Signer>
-    <Signer ID="ID_SIGNER_TEST2010" Name="MincryptKnownRootMicrosoftTestRoot2010">
-      <CertRoot Type="Wellknown" Value="0A" />
-    </Signer>
     <Signer ID="ID_SIGNER_TEST2010_USER" Name="MincryptKnownRootMicrosoftTestRoot2010">
       <CertRoot Type="Wellknown" Value="0A" />
     </Signer>
@@ -152,28 +108,13 @@
       <CertRoot Type="Wellknown" Value="07" />
       <CertEKU ID="ID_EKU_AM" />
     </Signer>
-    <Signer ID="ID_SIGNER_MICROSOFT_REFRESH_POLICY" Name="Microsoft Code Signing PCA 2011">
-      <CertRoot Type="TBS" Value="F6F717A43AD9ABDDC8CEFDDE1C505462535E7D1307E630F9544A2D14FE8BF26E" />
-      <CertPublisher Value="Microsoft Corporation" />
-      <FileAttribRef RuleID="ID_FILEATTRIB_REFRESH_POLICY" />
-    </Signer>
   </Signers>
   <SigningScenarios>
     <SigningScenario Value="131" ID="ID_SIGNINGSCENARIO_KMCI">
       <ProductSigners>
-        <AllowedSigners>
-          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_ELAM_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_HAL_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA2" />
-          <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA1" />
-          <AllowedSigner SignerId="ID_SIGNER_WHQL_MD5" />
-          <AllowedSigner SignerId="ID_SIGNER_WINDOWS_FLIGHT_ROOT" />
-          <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT" />
-          <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT" />
-          <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2" />
-          <AllowedSigner SignerId="ID_SIGNER_TEST2010" />
-        </AllowedSigners>
+        <FileRulesRef>
+          <FileRuleRef RuleID="ID_ALLOW_EVERYTHING_KMCI" />
+        </FileRulesRef>
       </ProductSigners>
     </SigningScenario>
     <SigningScenario Value="12" ID="ID_SIGNINGSCENARIO_UMCI">
@@ -197,7 +138,6 @@
           <AllowedSigner SignerId="ID_SIGNER_AM" />
           <AllowedSigner SignerId="ID_SIGNER_RT_FLIGHT" />
           <AllowedSigner SignerId="ID_SIGNER_RT_STANDARD" />
-          <AllowedSigner SignerId="ID_SIGNER_MICROSOFT_REFRESH_POLICY" />
           <AllowedSigner SignerId="ID_SIGNER_TEST2010_USER" />
         </AllowedSigners>
       </ProductSigners>

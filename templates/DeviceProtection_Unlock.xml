@@ -9,17 +9,9 @@
     </Rule>
   </Rules>
   <FileRules>
-    <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
     <Allow ID="ID_ALLOW_EVERYTHING_UMCI" FileName="*" />
   </FileRules>
   <SigningScenarios>
-    <SigningScenario Value="131" ID="ID_SIGNINGSCENARIO_KMCI">
-      <ProductSigners>
-        <FileRulesRef>
-          <FileRuleRef RuleID="ID_ALLOW_EVERYTHING_KMCI" />
-        </FileRulesRef>
-      </ProductSigners>
-    </SigningScenario>
     <SigningScenario Value="12" ID="ID_SIGNINGSCENARIO_UMCI">
       <ProductSigners>
         <FileRulesRef>
