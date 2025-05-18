@@ -23,8 +23,6 @@
   <EKUs>
     <EKU ID="ID_EKU_WINDOWS" Value="010A2B0601040182370A0306" />
     <EKU ID="ID_EKU_WHQL" Value="010A2B0601040182370A0305" />
-    <EKU ID="ID_EKU_ELAM" Value="010A2B0601040182373D0401" />
-    <EKU ID="ID_EKU_HAL_EXT" Value="010A2B0601040182373D0501" />
   </EKUs>
   <FileRules>
     <Allow ID="ID_ALLOW_EVERYTHING_KMCI" FileName="*" />
@@ -69,14 +67,6 @@
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_WINDOWS" />
     </Signer>
-    <Signer ID="ID_SIGNER_ELAM_PRODUCTION" Name="Microsoft Product Root 2010 ELAM EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_ELAM" />
-    </Signer>
-    <Signer ID="ID_SIGNER_HAL_PRODUCTION" Name="Microsoft Product Root 2010 HAL EKU">
-      <CertRoot Type="Wellknown" Value="06" />
-      <CertEKU ID="ID_EKU_HAL_EXT" />
-    </Signer>
     <Signer ID="ID_SIGNER_WHQL_SHA2" Name="Microsoft Product Root 2010 WHQL EKU">
       <CertRoot Type="Wellknown" Value="06" />
       <CertEKU ID="ID_EKU_WHQL" />
@@ -92,14 +82,6 @@
     <Signer ID="ID_SIGNER_WINDOWS_FLIGHT_ROOT" Name="Microsoft Flighting Root 2014 Windows EKU">
       <CertRoot Type="Wellknown" Value="0E" />
       <CertEKU ID="ID_EKU_WINDOWS" />
-    </Signer>
-    <Signer ID="ID_SIGNER_ELAM_FLIGHT" Name="Microsoft Flighting Root 2014 ELAM EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_ELAM" />
-    </Signer>
-    <Signer ID="ID_SIGNER_HAL_FLIGHT" Name="Microsoft Flighting Root 2014 HAL EKU">
-      <CertRoot Type="Wellknown" Value="0E" />
-      <CertEKU ID="ID_EKU_HAL_EXT" />
     </Signer>
     <Signer ID="ID_SIGNER_WHQL_FLIGHT_SHA2" Name="Microsoft Flighting Root 2014 WHQL EKU">
       <CertRoot Type="Wellknown" Value="0E" />
@@ -118,14 +100,10 @@
       <ProductSigners>
         <AllowedSigners>
           <AllowedSigner SignerId="ID_SIGNER_WINDOWS_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_ELAM_PRODUCTION" />
-          <AllowedSigner SignerId="ID_SIGNER_HAL_PRODUCTION" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA2" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_SHA1" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_MD5" />
           <AllowedSigner SignerId="ID_SIGNER_WINDOWS_FLIGHT_ROOT" />
-          <AllowedSigner SignerId="ID_SIGNER_ELAM_FLIGHT" />
-          <AllowedSigner SignerId="ID_SIGNER_HAL_FLIGHT" />
           <AllowedSigner SignerId="ID_SIGNER_WHQL_FLIGHT_SHA2" />
         </AllowedSigners>
       </ProductSigners>
